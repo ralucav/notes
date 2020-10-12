@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    redirect(URL::to('/notes')); // TODO
+    return redirect('notes');
 });
 Route::resource('notes', \App\Http\Controllers\NoteController::class);
