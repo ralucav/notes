@@ -13,3 +13,5 @@ Go to the notes repository and run `valet park`.
 ## To initialize the database
 Go to the notes repository and run `php artisan migrate:fresh --seed`.
  
+## To test the UI 
+Open http://notes.test in your browser.
