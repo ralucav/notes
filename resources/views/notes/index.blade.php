@@ -3,6 +3,12 @@
 <head>
     <title>Note Taking App</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <script>function truncate(str) {
+        let n = 200;
+        let s = (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+        document.write(s);
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -34,7 +40,11 @@
             <tr>
                 <td >
                     <a href="{{ URL::to('notes/' . $value->id) }}">
-                        {{ $value->content }}
+                        <script>
+                            var jsString = "<?php
+                                echo str_replace(array("\n","\r","\r\n"),'',$value->content);?>";
+                            truncate(jsString);
+                        </script>
                     </a>
 
                 </td>
